@@ -1,25 +1,52 @@
 import React, { useContext } from "react";
 import { ValueContext } from "../Context/ValueContext";
-
+import { useNavigate } from "react-router";
 
 const Googlesignup = () => {
- const {signupwithgoogle}= useContext(ValueContext);
+  const { signupwithgoogle } = useContext(ValueContext);
+  const navigate = useNavigate();
 
-const loginwithgoogle=()=>{
-  signupwithgoogle().then(() => {
-    // console.log("login successfully",result)
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  console.log(errorCode,errorMessage)
+  const loginwithgoogle = () => {
+    signupwithgoogle()
+      .then((result) => {
+        console.log(result);
+        // console.log("login successfully",result)
+        navigate(location?.state || "/");
 
-  });
-}
+        const userinfo = {
+          name: result.user.displayName,
+          email: result.user.email,
+          photo: result.user.photoURL,
+          phone: result.user.phoneNumber,
+        };
+
+        fetch(`http://localhost:3000/users`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userinfo),
+        })
+          .then((res) => res.json())
+          .then((response) => {
+            alert("Posted Successfully");
+            console.log(response);
+          });
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  };
 
   return (
     <div>
-         <button className="btn bg-white text-black border-[#e5e5e5] w-full mb-2" onClick={loginwithgoogle}>
+      <button
+        className="btn bg-white text-black border-[#e5e5e5] w-full mb-2"
+        onClick={loginwithgoogle}
+      >
         <svg
           aria-label="Google logo"
           width="16"

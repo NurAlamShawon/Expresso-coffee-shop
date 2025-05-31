@@ -14,7 +14,7 @@ import { auth } from "../firebase-init";
 
 
 const ContextProvider = ({ children }) => {
-  const [coffees, setCoffees] = useState([]);
+  const [coffees, setcoffees] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentuser, setCurrentUser] = useState(null);
 
@@ -24,7 +24,7 @@ const ContextProvider = ({ children }) => {
       try {
         const res = await fetch("http://localhost:3000/coffees");
         const data= await res.json();
-        setCoffees(data);
+        setcoffees(data);
       } catch (error) {
         console.error("Failed to fetch coffees:", error);
       }
