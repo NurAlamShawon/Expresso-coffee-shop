@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { ValueContext } from "../Context/ValueContext";
 import Googlesignup from "./Googlesignup";
-import { auth } from "../firebase-init";
 
 const Login = () => {
   const [eye, seteye] = useState(false);
@@ -32,13 +31,9 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        console.log(user)
 
-        if (!user.emailVerified) {
-          alert("Please verify your email before logging in.");
-          // Optionally sign out the user
-          auth.signOut();
-          return;
-        }
+        
         navigate(location?.state || "/");
 
         // Continue with login if verified

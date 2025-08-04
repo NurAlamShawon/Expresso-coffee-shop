@@ -42,7 +42,7 @@ const UpdateProfile = () => {
         .then(() => {
           toast("You have updated your profile");
 
-          fetch(`http://localhost:3000/users/${id.id}`, {
+          fetch(`https://coffee-shop-server-orpin.vercel.app/users/${id.id}`, {
             method: "PUT",
             headers: {
               "content-type": "application/json",

@@ -8,7 +8,7 @@ const AdditemCard = () => {
     const formData = new FormData(form);
     const coffeedata = Object.fromEntries(formData.entries());
 
-    fetch(`http://localhost:3000/coffees`, {
+    fetch(`https://coffee-shop-server-orpin.vercel.app/coffees`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -23,7 +23,7 @@ const AdditemCard = () => {
   };
 
   return (
-    <div className="pt-10 pb-10 bg-[url('../../src/assets/images/more/11.png')]">
+    <div className="pt-10 pb-10 bg-[url('https://i.postimg.cc/3RpsfGHK/11.png')]">
       <div className="max-w-6xl mx-auto">
         <Link to="/">
           <h1
@@ -180,7 +180,7 @@ const AdditemCard = () => {
                 // value={coffee.photo}
                 // onChange={handleChange}
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                placeholder="https://i.ibb.co/PGqMPr9/11.png"
+                placeholder="555"
               />
             </div>
 

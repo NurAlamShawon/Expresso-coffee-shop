@@ -2,13 +2,13 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-[url('../../src/assets/images/more/24.jpg')] bg-cover bg-center bg-no-repeat ">
-      <div className=" bg-[url('../../src/assets/images/more/13.jpg')] bg-cover bg-center ">
+    <div className="bg-[url('https://i.postimg.cc/XN1f1zQY/24.jpg')] bg-cover bg-center bg-no-repeat ">
+      <div className=" bg-[url('https://i.postimg.cc/KvKn6DHr/13.jpg')] bg-cover bg-center ">
         <div className=" max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center pt-20 pb-20 text-center md:text-left text-[#331A15]">
           {/* Left Side */}
           <div className=" space-y-6 xl:p-0 p-2">
             <img
-              src="../../src/assets/images/more/logo1.png"
+              src="https://i.postimg.cc/MZgDKLRr/logo1.png"
               alt=""
               className="w-19 h-22"
             />

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { auth } from "../firebase-init";
-import { sendEmailVerification, updateProfile } from "firebase/auth";
+import {updateProfile } from "firebase/auth";
 import { Link, useLocation, useNavigate } from "react-router";
 import { ValueContext } from "../Context/ValueContext";
 
@@ -20,12 +20,14 @@ const Register = () => {
     const photo = e.target.photo.value;
     const phone = e.target.phone.value;
     const check = e.target.check.checked;
+    
 
     const userinfo = {
       email,
       name,
       photo,
       phone,
+      role:"user",
     };
 
     seterror("");
@@ -46,7 +48,7 @@ const Register = () => {
 
     signupwithemail(email, password)
       .then(() => {
-        fetch(`http://localhost:3000/users`, {
+        fetch(`https://coffee-shop-server-orpin.vercel.app/users`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -59,17 +61,6 @@ const Register = () => {
             console.log(response);
           });
 
-        // const user = userCredential.user;
-        // console.log(user);
-        // verification code
-        sendEmailVerification(auth.currentUser)
-          .then(() => {
-            alert("Verification email sent. Please check your inbox.");
-            // Optionally sign out the user until they verify
-          })
-          .catch((err) => {
-            console.log("Email verification error:", err);
-          });
 
         // update user
         updateProfile(auth.currentUser, {

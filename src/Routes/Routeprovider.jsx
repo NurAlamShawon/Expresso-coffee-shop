@@ -11,6 +11,7 @@ import AuthenticationLayout from "../Layouts/AuthenticationLayout";
 import UpdateProfile from "../Components/UpdateProfile";
 import Register from "../Components/Register";
 import PrivateRoutes from "./PrivateRoutes";
+import MyOrders from "../Components/MyOrders";
 
 const router = createBrowserRouter([
   {
@@ -22,14 +23,14 @@ const router = createBrowserRouter([
         path: "/edit/:id",
         Component: EditInfo,
         loader: async ({ params }) => {
-          return await fetch(`http://localhost:3000/coffees/${params.id}`);
+          return await fetch(`https://coffee-shop-server-orpin.vercel.app/coffees/${params.id}`);
         },
       },
       {
         path: "/description/:id",
         Component: Description,
         loader: async ({ params }) => {
-          return await fetch(`http://localhost:3000/coffees/${params.id}`);
+          return await fetch(`https://coffee-shop-server-orpin.vercel.app/coffees/${params.id}`);
         },
       },
       { path: "/add-item", Component: Additem },
@@ -41,8 +42,13 @@ const router = createBrowserRouter([
         path: "/users-profile-update/:id",
         Component: UpdateProfile,
         loader: async ({ params }) => {
-          return await fetch(`http://localhost:3000/users/${params.id}`);
+          return await fetch(`https://coffee-shop-server-orpin.vercel.app/users/${params.id}`);
         },
+      },
+      {
+        path:"my-orders",
+        Component:MyOrders,
+
       },
     ],
   },

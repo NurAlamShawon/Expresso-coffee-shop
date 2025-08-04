@@ -18,9 +18,10 @@ const Googlesignup = () => {
           email: result.user.email,
           photo: result.user.photoURL,
           phone: result.user.phoneNumber,
+          role:"user",
         };
 
-        fetch(`http://localhost:3000/users`, {
+        fetch(`https://coffee-shop-server-orpin.vercel.app/users`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -29,7 +30,6 @@ const Googlesignup = () => {
         })
           .then((res) => res.json())
           .then((response) => {
-            alert("Posted Successfully");
             console.log(response);
           });
       })

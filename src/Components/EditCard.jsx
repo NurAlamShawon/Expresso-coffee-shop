@@ -19,7 +19,7 @@ const form=e.target;
 const formData=new FormData(form);
 const coffeedata=Object.fromEntries(formData.entries());
 
-fetch(`http://localhost:3000/coffees/${id.id}`, {
+fetch(`https://coffee-shop-server-orpin.vercel.app/coffees/${id.id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -40,7 +40,7 @@ fetch(`http://localhost:3000/coffees/${id.id}`, {
 
 
   return (
-    <div className="pt-10 pb-10 bg-[url('../../src/assets/images/more/11.png')]">
+    <div className="pt-10 pb-10 bg-[url('https://i.postimg.cc/3RpsfGHK/11.png')]">
       <div className="max-w-6xl mx-auto">
         <Link to="/">
           <h1

@@ -22,7 +22,7 @@ const ContextProvider = ({ children }) => {
   useEffect(() => {
     const fetchCoffees = async () => {
       try {
-        const res = await fetch("http://localhost:3000/coffees");
+        const res = await fetch("https://coffee-shop-server-orpin.vercel.app/coffees");
         const data= await res.json();
         setcoffees(data);
       } catch (error) {
